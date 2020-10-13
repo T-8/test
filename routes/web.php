@@ -17,7 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contact/index', [App\Http\Controllers\TestController::class, 'index']);
+Route::group(['prefix' => 'contact', 'middleware' => 'auth'], function(){
+        Route::get('index', [App\Http\Controllers\TestController::class, 'index']);
+});
 
 Auth::routes();
 
