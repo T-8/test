@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group(['prefix' => 'contact', 'middleware' => 'auth'], function(){
+        Route::get('index', [App\Http\Controllers\TestController::class, 'index']);
 });
 
 Auth::routes();
