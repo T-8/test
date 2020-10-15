@@ -15,12 +15,13 @@
                     @endif
 
                     {{ __('create') }}
-                    <form action="" method="post">
+                    <form action="{{route('contact.store')}}" method="post">
+                      @csrf
                       氏名
                       <input type="text" name="name">
                       <br>
                       メールアドレス
-                      <input type="text" name="name">
+                      <input type="text" name="email">
                       <br>
                       ホームページ
                       <input type="url" name="url">
@@ -30,7 +31,6 @@
                       <input type="radio" name="gender" value="1">女性</input>
                       <br>
                       <input type="submit" class="btn btn-info" value="登録">
-
                     </form>
                 </div>
             </div>

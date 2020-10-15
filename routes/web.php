@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'contact', 'middleware' => 'auth'], function(){
         Route::get('index', [App\Http\Controllers\TestController::class, 'index'])->name('contact.index');
         Route::get('create', [App\Http\Controllers\TestController::class, 'create'])->name('contact.create');
+        Route::post('store', [App\Http\Controllers\TestController::class, 'store'])->name('contact.store');
 });
 
 Auth::routes();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Value;
 
 class TestController extends Controller
 {
@@ -37,6 +38,13 @@ class TestController extends Controller
     public function store(Request $request)
     {
         //
+        $test = new Value;
+        $test->name = $request->input('name');
+        $test->email = $request->input('email');
+        $test->url = $request->input('url');
+        $test->gender = $request->input('gender');
+        $test->save();
+        return redirect('contact.index');
     }
 
     /**
