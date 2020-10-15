@@ -14,6 +14,12 @@
                         </div>
                     @endif
 
+                    <form action="{{ route('contact.create') }}" method="get">
+                      <button type="submit" class="btn btn-primary">
+                        新規登録
+                      </button>
+                    </form>
+
                     {{ __('index') }}
                 </div>
             </div>
