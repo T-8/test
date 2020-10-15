@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateValuesTable extends Migration
+class UpdateValuesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateValuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('values', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 20);
-            $table->timestamps();
+        Schema::table('values', function (Blueprint $table) {
+            //
+            $table->string('email', 255);
+            $table->longText('url')->nullable($value = true);
+            $table->boolean('gender');
         });
     }
 
@@ -27,6 +28,8 @@ class CreateValuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('values');
+        Schema::table('values', function (Blueprint $table) {
+            //
+        });
     }
 }
