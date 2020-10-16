@@ -122,5 +122,8 @@ class TestController extends Controller
     public function destroy($id)
     {
         //
+        $test = Value::find($id);
+        $test->delete();
+        return redirect('contact/index');
     }
 }
