@@ -15,7 +15,7 @@
                     @endif
 
                     {{ __('edit') }}
-                    <form action="" method="post">
+                    <form action="{{route('contact.update', [ 'id' => $test->id ]) }}" method="post">
                       @csrf
                       氏名
                       <input type="text" name="name" value="{{ $test->name }}">

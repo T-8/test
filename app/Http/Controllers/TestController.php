@@ -103,6 +103,14 @@ class TestController extends Controller
     public function update(Request $request, $id)
     {
         //
+        //$test = new Value;
+        $test = Value::find($id);
+        $test->name = $request->input('name');
+        $test->email = $request->input('email');
+        $test->url = $request->input('url');
+        $test->gender = $request->input('gender');
+        $test->save();
+        return redirect('contact/index');
     }
 
     /**
