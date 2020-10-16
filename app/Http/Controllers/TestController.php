@@ -81,6 +81,16 @@ class TestController extends Controller
     public function edit($id)
     {
         //
+        $test = Value::find($id);
+
+        if($test->gender === 0){
+          $gender = '男性';
+        }
+        if($test->gender === 1){
+          $gender = '女性';
+        }
+
+        return view('contact.edit', compact('test', 'gender'));
     }
 
     /**
