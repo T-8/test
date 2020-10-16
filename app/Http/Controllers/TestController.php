@@ -15,7 +15,9 @@ class TestController extends Controller
     public function index()
     {
         //
-        return view('contact.index');
+        $tests = Value::all();
+
+        return view('contact.index', compact('tests'));
     }
 
     /**
@@ -44,7 +46,7 @@ class TestController extends Controller
         $test->url = $request->input('url');
         $test->gender = $request->input('gender');
         $test->save();
-        return redirect('contact.index');
+        return redirect('contact/index');
     }
 
     /**
@@ -56,6 +58,18 @@ class TestController extends Controller
     public function show($id)
     {
         //
+        $test = Value::find($id);
+
+        if($test->gender === 0){
+          $gender = '男性';
+        }
+
+        if($test->gender === 1){
+          $gender = '女性';
+        }
+
+
+        return view('contact.show', compact('test', 'gender'));
     }
 
     /**

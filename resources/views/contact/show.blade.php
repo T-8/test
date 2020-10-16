@@ -14,14 +14,8 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('contact.create') }}" method="get">
-                      <button type="submit" class="btn btn-primary">
-                        新規登録
-                      </button>
-                    </form>
-
-                    {{ __('index') }}
-                    <table class="table table-striped">
+                    {{ __('show') }}
+                    <table class="table table-bordered">
                       <thead>
                         <tr>
                           <th>
@@ -36,44 +30,30 @@
                           <th>
                             URL
                           </th>
-                          <th>
-                            登録日時
-                          </th>
-                          <th>
-                          </th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach($tests as $test)
                         <tr>
                           <td>
-                            {{$test->name}}
+                            {{ $test->name }}
                           </td>
                           <td>
-                            @if($test->gender === 0)
-                            男性
-                            @elseif($test->gender === 1)
-                            女性
-                            @endif
+                            {{ $gender }}
                           </td>
                           <td>
-                            {{$test->email}}
+                            {{ $test->email }}
                           </td>
                           <td>
-                            {{$test->url}}
-                          </td>
-                          <td>
-                            {{$test->created_at}}
-                          </td>
-                          <td>
-                            <a href="{{ route('contact.show', ['id' => $test->id ]) }}">詳細</a>
+                            {{ $test->url }}
                           </td>
                         </tr>
-                        @endforeach
                       </tbody>
-
-
                     </table>
+
+                    <form action="" method="get">
+                      @csrf
+                      <input type="submit" class="btn btn-info" value="変更">
+                    </form>
                 </div>
             </div>
         </div>
