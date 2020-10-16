@@ -50,7 +50,7 @@
                       </tbody>
                     </table>
 
-                    <form action="" method="get">
+                    <form action="{{ route('contact.edit', [ 'id' => $test->id ]) }}" method="get">
                       @csrf
                       <input type="submit" class="btn btn-info" value="変更">
                     </form>
