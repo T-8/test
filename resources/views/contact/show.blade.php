@@ -54,6 +54,11 @@
                       @csrf
                       <input type="submit" class="btn btn-info" value="変更">
                     </form>
+
+                    <form action="{{ route('contact.destroy', [ 'id' => $test->id ]) }}" method="post">
+                      @csrf
+                      <input type="submit" class="btn btn-info" value="削除">
+                    </form>
                 </div>
             </div>
         </div>
