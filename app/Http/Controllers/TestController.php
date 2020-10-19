@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Value;
+use App\Http\Requests\StoreForm;
 
 class TestController extends Controller
 {
@@ -37,7 +38,7 @@ class TestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreForm $request)
     {
         //
         $test = new Value;
